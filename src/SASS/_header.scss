@@ -1,0 +1,135 @@
+@import "_global" ;
+
+header {
+  display: flex;
+  width: 100%;
+  padding: 30px;
+  justify-content: space-between;
+  img {
+    height: 3rem;
+  }
+
+  .search {
+    position: relative;
+    input {
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      font-size: 1em;
+      color: $color-grey-dark-1;
+      width: 20em;
+      outline: none;
+      &::placeholder {
+        color: $color-grey-light-3;
+      }
+    }
+
+    button {
+      position: absolute;
+      left: 80%;
+    }
+  }
+
+  .add {
+    display: flex;
+    position: relative;
+    button {
+      position: relative;
+      border: none;
+      padding: 40px 10px;
+      transform: translateY(-30px);
+      cursor: pointer;
+      background: none;
+      color: $color-grey-dark-1;
+      font-size: 0.8em;
+      font-weight: 600;
+      i {
+        color: $mainColor;
+        font-size: 2em;
+        transform: translate(-5px, 5px);
+      }
+
+      &:hover {
+        background-color: $color-grey-light-2;
+      }
+    }
+  }
+}
+
+.book-list {
+  z-index: 3;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow-y: scroll;
+  transition: opacity 0.3s linear;
+  background-color: white;
+  padding: 20px;
+  height: 20vh;
+  min-width: 30vw;
+  position: absolute;
+  right: 0;
+  transform: translateY(-30px);
+
+  .book {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2em;
+    h3 {
+      font-size: 0.8em;
+    }
+
+    &:hover {
+      background-color: #f6dbd8;
+      cursor: pointer;
+      border-radius: 15px;
+    }
+  }
+
+  img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    .search {
+      input {
+        width: 15rem;
+        padding: 0.85rem;
+        margin: 0;
+        transform: translateX(-30px);
+      }
+
+      button {
+        width: 7rem;
+        font-size: 0.65rem;
+        padding: 1.5em;
+        left: 70%;
+        margin: 0;
+      }
+    }
+
+    .add {
+      div {
+        button {
+          padding: 1rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .book-list {
+    left: 0;
+  }
+}
